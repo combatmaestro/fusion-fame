@@ -476,13 +476,13 @@ img { max-width:100%; height:auto; vertical-align:top; }
 
 .widget-hair-fix-wrap { background-image:url(../images/wid-hair-fix.png) }
 
-.widget-stud-hrs { padding:25px 0 25px 0; background-color:#351641; background-image:url(../images/studio-hrs.png); background-repeat:no-repeat; background-position:55px center;  color:#8f838f; position:absolute; left:0; top:0; width:100%; margin-top:-50px; z-index:100     }
+.widget-stud-hrs { padding:25px 0 25px 0; background-color:#90caf8; background-image:url(../images/studio-hrs.png); background-repeat:no-repeat; background-position:55px center;  color:#8f838f; position:absolute; left:0; top:0; width:100%; margin-top:-50px; z-index:100     }
 
-.cnName { font-size:18pt; padding-right:20px; padding-top:5px ; color:#fff }
+.cnName { font-size:18pt; padding-right:20px; padding-top:5px ; color:#000000 }
 
 .timeBlk, .cnName { float:left }
 
-.timeBlk { color:#a6a6a6 }
+.timeBlk { color:#050505 }
 
 .timing  { float:left }
 
