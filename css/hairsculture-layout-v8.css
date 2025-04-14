@@ -370,7 +370,7 @@ font-family: 'Montserrat', sans-serif; font-family: 'Lato', sans-serif;
 
 .about-title, .serveBtns, .modal-title { font-family: 'Lato', sans-serif; }
 
-.welcTitle { font-weight:600; font-size:50pt; color:#4a1c36; text-align:center; line-height:0; padding:0; margin:0  }
+.welcTitle { font-weight:600; font-size:50pt; color:#164135; text-align:center; line-height:0; padding:0; margin:0  }
 
 .smallTitle { font-size:14pt; padding-bottom:5px; }
 
@@ -450,7 +450,7 @@ img { max-width:100%; height:auto; vertical-align:top; }
 
 .widget-welWrapp { padding:20px 0 40px 0; min-height:580px; }
 
-.welcCNt { background-image:url(../images/welcome-bg.jpg); padding:70px 60px; color:#fff }
+.welcCNt { background-image:url(../images/welcome-bg.png); padding:70px 60px; color:#fff }
 
 .welcCNt article { padding:31px 0 }
 
@@ -476,13 +476,13 @@ img { max-width:100%; height:auto; vertical-align:top; }
 
 .widget-hair-fix-wrap { background-image:url(../images/wid-hair-fix.png) }
 
-.widget-stud-hrs { padding:25px 0 25px 0; background-color:#4a1c36; background-image:url(../images/studio-hrs.jpg); background-repeat:no-repeat; background-position:55px center;  color:#8f838f; position:absolute; left:0; top:0; width:100%; margin-top:-50px; z-index:100     }
+.widget-stud-hrs { padding:25px 0 25px 0; background-color:#351641; background-image:url(../images/studio-hrs.png); background-repeat:no-repeat; background-position:55px center;  color:#8f838f; position:absolute; left:0; top:0; width:100%; margin-top:-50px; z-index:100     }
 
-.cnName { font-size:18pt; padding-right:20px; padding-top:5px }
+.cnName { font-size:18pt; padding-right:20px; padding-top:5px ; color:#fff }
 
 .timeBlk, .cnName { float:left }
 
-.timeBlk { color:#fff }
+.timeBlk { color:#a6a6a6 }
 
 .timing  { float:left }
 
@@ -500,7 +500,7 @@ img { max-width:100%; height:auto; vertical-align:top; }
 
 .widget-hme-features { background-image:url(../images/hme-features-bg.jpg); background-position:center top; border-top:1px solid #fff; padding:0 0; text-align:center }
 
-.btm-widget-branches { background-image:url(../images/btm-branches-bg.png) }
+.btm-widget-branches { background-image:url(../images/widget-hait-trans.png) }
 
 .widget-title-btm { color:#fff; font-weight:normal; text-transform:uppercase; font-size:18pt; padding-bottom:20px }
 
@@ -579,7 +579,7 @@ img { max-width:100%; height:auto; vertical-align:top; }
 
 .widget-safe  figure { float:right; width:45%; }
 
-.sub-bottom-wrapp {  background-image:url(../images/btm-branches-bg.png); }
+.sub-bottom-wrapp {  background-image:url(../images/widget-hait-trans.png); }
 
 .widget-fue-block {  }
 
@@ -591,7 +591,7 @@ img { max-width:100%; height:auto; vertical-align:top; }
 
 .sub-btm-branches address { font-style:normal; width:100%; float:left }
 
-.btmQuickLInks { padding:25px 0 45px; background-image:url(../images/welcome-bg.jpg) }
+.btmQuickLInks { padding:25px 0 45px; background-image:url(../images/welcome-bg.png) }
 
 .btmQuickLInks li { display:inline-block; width:auto; padding:0 0; width:33%;  }
 
@@ -763,7 +763,7 @@ img { max-width:100%; height:auto; vertical-align:top; }
 
 .sub-btm-branches { color: #262626; }
 
-.footer-menu a:hover { color:#4a1c36 }
+.footer-menu a:hover { color:#164135 }
 
 .read-more a:link:hover { background-color:rgba(84, 84, 84, 0.43); transition: all 0.5s ease; }
 
@@ -875,7 +875,7 @@ img { max-width:100%; height:auto; vertical-align:top; }
 
 
 
-.enqu-form .submit-btn { padding: 10px 20px; border: none; color: #fff; background-color: #4a1c36; }
+.enqu-form .submit-btn { padding: 10px 20px; border: none; color: #fff; background-color: #164135; }
 
 	
 
