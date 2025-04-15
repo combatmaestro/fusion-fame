@@ -109,10 +109,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a id="howDoes"></a>
           <div class="how-video">
             <h3 class="figTitle"> How does it work</h3>
-  <p>Watch this video to get a better understanding of non surgical hair replacement procedure.</p>
+            <p>Watch this video to get a better understanding of non surgical hair replacement procedure.</p>
             <div class="howVdo">
               <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/LczmL4P3tcw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              </div>
+            </div>
             </div>
           </div>
         <div class="clear"></div>
@@ -286,6 +286,13 @@ All 7 days of week
 </form>
  <script async src="https://www.google.com/recaptcha/api.js?render=6Le8imcbAAAAABhZTVIXqKYojcxzWDUxZrQ6KyXg"></script>
  <script>
+    Promise.all([
+      fetch("commonNav.html").then((res) => res.text()),
+    ]).then(([navHTML]) => {
+      document.getElementById("commonNav").outerHTML = navHTML;
+    });
+  </script>
+ <script>
  var refreshButton = document.querySelector(".refresh-captcha");
 refreshButton.onclick = function() {
   document.querySelector(".captcha-image").src = 'captcha.php?' + Date.now();
@@ -354,6 +361,7 @@ refreshButton.onclick = function() {
 <script src="js/jquery.min.js" ></script>
 <script src="js/webfontloader.js" ></script>
 <script src="js/menu/menu.js"></script>
+
 <script >
  $(function() {
  //	create a menu
@@ -621,13 +629,7 @@ function refreshCaptcha() {
 </script>
       <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49877708-1"></script>
-    <script>
-        Promise.all([
-          fetch("commonNav.html").then((res) => res.text()),
-        ]).then(([navHTML]) => {
-          document.getElementById("commonNav").outerHTML = navHTML;
-        });
-      </script>
+    
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }

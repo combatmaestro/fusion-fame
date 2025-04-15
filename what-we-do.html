@@ -92,58 +92,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <div id="page">
-  <div class="mobMenu float-panel" data-top="0" data-scroll="200">
-<div class="mh-head first mh-align-left Sticky">
-<div class="mob-num">
-  FOR FREE CONSULTATION - Dubai <a href="tel:+971 544438816">+971 544438816</a> / 
-  Qatar <a href="tel:+97433195277">+974 33195277</a> /  India <a href="tel:+91 98463 43333">+91 98463 43333</a>
-<div class="clear"></div>
-</div>
-<div class="mob-num-respsv">
-   <div id="marquee">
-    Dubai <a href="tel:+971 544438816">+971 544438816</a> / 
-  Qatar <a href="tel:+97433195277">+974 33195277</a> /  India <a href="tel:+91 98463 43333">+91 98463 43333</a>
-    
-    </div> 
-  </div>
-				<span class="mh-btns-left">
-					<a class="mh-hamburger" href="#menu"></a>
-				</span>
-				<span class="mh-text">Menu</span>
-			</div>
-                   <div id="mobilemenu"><mobilemenu></mobilemenu></div>
-            
-</div>
-<header class="headerWrap float-panel" data-top="0" data-scroll="200">
-<div class="header-top">
-<div class="container" id="topcall"><topcall></topcall>
-
-
-<div class="primary-menu" id="primary-menu"><primary-menu></primary-menu>
-
-<div class="clear"></div>
-</div>
-</div>
-<div class="clear"></div>
-</div>
-<!-- end header top -->
-
-<div class="header-btm">
-<div class="container">
-<figure class="siteLogo">
-  <a href="index.html">
-<img src="images/hairs-culture-logo.jpg" alt="hairs culture logo" width="133" height="165"> </a>
-</figure>
-<div class="serveBtns" id="top-serv-menu"><top-serv-menu></top-serv-menu>
-<div class="clear"></div></div>
-<div class="consScrl">
-FOR FREE CONSULTATION -  Dubai +971 544438816 /   Qatar +974 33195277  /  India +91 98463 43333
-</div>
-<div class="clear"></div>
-</div><!-- emd header bottom -->
-</div>
-<div class="clear"></div>
-</header><!-- emd header -->
+    <div id="commonNav"></div>
 <div class="bannerWrapp"> <img src="images/banner/what-we-do-banner.jpg" alt="best non surgical hair replacement in kerala" width="1300" height="489">
   <div class="clear"></div>
 </div>
@@ -600,6 +549,13 @@ window.addEventListener('load', function () {
 </script>
 <div></div>
 <script>
+    Promise.all([
+      fetch("commonNav.html").then((res) => res.text()),
+    ]).then(([navHTML]) => {
+      document.getElementById("commonNav").outerHTML = navHTML;
+    });
+  </script>
+<script>
 // Get the modal
 var modal = document.getElementById('myModal');
 // Get the button that opens the modal
@@ -621,6 +577,7 @@ window.onclick = function(event) {
     }
 }
 </script>
+
 <script>
 var modalBtns = [...document.querySelectorAll(".button")];
 modalBtns.forEach(function(btn){

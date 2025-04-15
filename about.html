@@ -386,6 +386,13 @@ refreshButton.onclick = function() {
 <script src="js/jquery.min.js" ></script>
 <script src="js/webfontloader.js" ></script>
 <script src="js/menu/menu.js"></script>
+<script>
+    Promise.all([
+      fetch("commonNav.html").then((res) => res.text()),
+    ]).then(([navHTML]) => {
+      document.getElementById("commonNav").outerHTML = navHTML;
+    });
+  </script>
 <script >
  $(function() {
  //	create a menu

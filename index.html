@@ -135,8 +135,8 @@
                                         <iframe width="560" height="315" src="https://www.youtube.com/embed/em7ljV1Px5c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     </div>
                                     <figcaption class="callVideo">
-                                        <a href="https://www.hairsculture.com/contact.html"><img src="images/icon-call.png" class="callIcon" alt="best hair replacement in kerala" width="25" height="25" /> Call for cost & procedure</a>
-                                    </figcaption>
+                                        <a href="https://www.hairsculture.com/contact.html"> <img src="images/icon-call.png" class="callIcon" alt="best hair replacement in kerala" width="25" height="25"> Call for cost &amp; procedure</a>
+                                        </figcaption>
                                 </figure>
                             </div>
                             <div class="clear"></div>
@@ -428,6 +428,13 @@
     <script src="js/jquery.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49877708-1"></script>
+    <script>
+        Promise.all([
+          fetch("commonNav.html").then((res) => res.text()),
+        ]).then(([navHTML]) => {
+          document.getElementById("commonNav").outerHTML = navHTML;
+        });
+      </script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
