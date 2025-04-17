@@ -528,20 +528,21 @@ nav:not(.mm-menu) {
 /*! */
 
 .hamburger {
-  font: inherit;
-  display: inline-block;
-  overflow: visible;
-  margin: 0;
-  padding: 15px;
-  cursor: pointer;
-  transition-timing-function: linear;
-  transition-duration: 0.15s;
-  transition-property: opacity, filter;
-  text-transform: none;
-  color: inherit;
-  border: 0;
-  background-color: transparent;
-}
+	font: inherit;
+	display: inline-block;
+	overflow: visible;
+	margin: 0;
+	padding: 15px;
+	cursor: pointer;
+	transition-timing-function: linear;
+	transition-duration: 0.15s;
+	transition-property: opacity, filter;
+	text-transform: none;
+	color: #fff; /* Set to white */
+	border: 0;
+	background-color: transparent;
+  }
+  
 .hamburger:hover {
   opacity: 0.7;
 }
