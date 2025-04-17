@@ -22,42 +22,42 @@ $(".sliding-link").click(function(e) {
 });
 
 // Marquee animation for #marquee
-window.addEventListener('load', function() {
-    function go() {
-        i = i < width ? i + step : 1;
-        m.style.marginLeft = -i + 'px';
-    }
-    var i = 0, step = 3, space = '     ';
-    var m = document.getElementById('marquee');
-    var t = m.innerHTML;
-    m.innerHTML = t + space;
-    m.style.position = 'absolute';
-    var width = (m.clientWidth + 1);
-    m.style.position = '';
-    m.innerHTML = t + space + t + space + t + space + t + space + t + space + t + space + t + space;
-    m.addEventListener('mouseenter', function() { step = 0; }, true);
-    m.addEventListener('mouseleave', function() { step = 3; }, true);
-    var x = setInterval(go, 100);
-}, true);
+// window.addEventListener('load', function() {
+//     function go() {
+//         i = i < width ? i + step : 1;
+//         m.style.marginLeft = -i + 'px';
+//     }
+//     var i = 0, step = 3, space = '     ';
+//     var m = document.getElementById('marquee');
+//     var t = m.innerHTML;
+//     m.innerHTML = t + space;
+//     m.style.position = 'absolute';
+//     var width = (m.clientWidth + 1);
+//     m.style.position = '';
+//     m.innerHTML = t + space + t + space + t + space + t + space + t + space + t + space + t + space;
+//     m.addEventListener('mouseenter', function() { step = 0; }, true);
+//     m.addEventListener('mouseleave', function() { step = 3; }, true);
+//     var x = setInterval(go, 100);
+// }, true);
 
-// Marquee animation for #marquee01 (if needed, though not present in HTML)
-window.addEventListener('load', function() {
-    function go() {
-        i = i < width ? i + step : 1;
-        m.style.marginLeft = -i + 'px';
-    }
-    var i = 0, step = 3, space = '     ';
-    var m = document.getElementById('marquee01');
-    var t = m.innerHTML;
-    m.innerHTML = t + space;
-    m.style.position = 'absolute';
-    var width = (m.clientWidth + 1);
-    m.style.position = '';
-    m.innerHTML = t + space + t + space + t + space + t + space + t + space + t + space + t + space;
-    m.addEventListener('mouseenter', function() { step = 0; }, true);
-    m.addEventListener('mouseleave', function() { step = 3; }, true);
-    var x = setInterval(go, 100);
-}, true);
+// // Marquee animation for #marquee01 (if needed, though not present in HTML)
+// window.addEventListener('load', function() {
+//     function go() {
+//         i = i < width ? i + step : 1;
+//         m.style.marginLeft = -i + 'px';
+//     }
+//     var i = 0, step = 3, space = '     ';
+//     var m = document.getElementById('marquee01');
+//     var t = m.innerHTML;
+//     m.innerHTML = t + space;
+//     m.style.position = 'absolute';
+//     var width = (m.clientWidth + 1);
+//     m.style.position = '';
+//     m.innerHTML = t + space + t + space + t + space + t + space + t + space + t + space + t + space;
+//     m.addEventListener('mouseenter', function() { step = 0; }, true);
+//     m.addEventListener('mouseleave', function() { step = 3; }, true);
+//     var x = setInterval(go, 100);
+// }, true);
 
 // Modal functionality
 var modal = document.getElementById('myModal');
