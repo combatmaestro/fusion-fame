@@ -166,56 +166,7 @@ All 7 days of week
 </ul>
 
 <div class="clear"></div></div></div>
-<footer class="footer-wrap">
-<section class="footer-top"><div class="container">
-<div class="footer-menu">
-<h3 class="widget-title-btm">QUICK <strong>LINKS</strong></h3>
-<div class="clear"></div>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About Us</a></li>
-<!--<li><a href="../hair-trans-title-new-170323.png">Hair Transplant</a></li>-->
-<li><a href="hair-replacement.html">Hair Replacement</a></li>
-<li><a href="hair-fixing.html">Hair Fixing</a></li>
-<li><a href="methodology.html">Methodology</a></li>
-</ul>
-<ul>
-<li><a href="care.html">Care / Maintenance</a></li>
-<li><a href="faq.html">FAQ's</a></li>
-<li><a href="hair-loss.html">Hair Loss</a></li>
-<li><a href="contact.html">Contact Us</a></li>
-<li><a  href="sitemap.html">Site Map</a></li>
-</ul>
-<div class="clear"></div>
-</div>
-<div class="footer-contact">
-<h3 class="widget-title-btm">QUICK <strong>CONTACT</strong></h3>
-<div class="clear"></div>
-<div id="quick-app"><quick-app></quick-app></div>
-
-<div class="clear"></div>
-</div>
-<div class="clear"></div></div></section>
-<!-- end footer-top -->
-
-<div class="footerBtm"><div class="container"><div style="position:relative; border-top:1px solid #e2e1e2">
-<div class="smo smo-sum">
-<ul>
-<li class="fb"><a href="https://www.facebook.com/HairscultureStudio" target="_blank" ></a></li>
-<li class="insta"><a href="https://www.instagram.com/hairsculture_replacement/" target="_blank"></a></li>
-<li class="twitt"><a href="https://twitter.com/HairsCulture1" target="_blank"></a></li>
-<li class="ytb"><a href="https://www.youtube.com/channel/UCpAzKz8iJKCVg0yZrRqROIA" target="_blank"></a></li>
-<li class="pint"><a href="https://in.pinterest.com/hairsculturekoc/" target="_blank"></a></li>
-<li class="vimeo"><a href="https://vimeo.com/hairsculturestudio" target="_blank"></a></li>
-<li class="blogs"><a href="https://hairsculturestudio.blogspot.com/" target="_blank"></a></li>
-</ul>
-<div class="clear"></div>
-</div>
-<div class="cpr" id="cpr-app"><cpr-app></cpr-app></div>
-<div class="clear"></div></div></div>
-</div>
-<div class="clear"></div>
-</footer>
+<footer id="footerCommon"></div>
 <div class="clear"></div>
 </div>
 <!-- end page -->
@@ -288,8 +239,11 @@ All 7 days of week
  <script>
     Promise.all([
       fetch("commonNav.html").then((res) => res.text()),
-    ]).then(([navHTML]) => {
+      fetch("footer.html").then((res) => res.text()),
+      
+    ]).then(([navHTML,footerCommon]) => {
       document.getElementById("commonNav").outerHTML = navHTML;
+      document.getElementById("footerCommon").outerHTML = footerCommon;
     });
   </script>
  <script>
