@@ -8732,3 +8732,29 @@ img {
     width: calc(49% - 0px);
   }
 }
+/* Ensure visibility and alignment */
+.mh-hamburger {
+  display: block;
+  cursor: pointer;
+  width: 30px;
+  height: 25px;
+  position: relative;
+  z-index: 999; /* ensures it stays on top */
+}
+
+/* Each line of the hamburger */
+.mh-hamburger span {
+  display: block;
+  height: 3px;
+  background-color: #ffffff; /* change to your desired color */
+  margin: 5px 0;
+  transition: all 0.3s ease-in-out;
+  border-radius: 2px;
+}
+
+/* Responsive visibility */
+@media (min-width: 769px) {
+  .mh-hamburger {
+      display: none;
+  }
+}

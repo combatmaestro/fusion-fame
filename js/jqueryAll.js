@@ -2049,8 +2049,8 @@ function McFloatPanel(){var i=[],s=[],h="className",t="getElementsByClassName",d
 
 
 /*---------------------------------------------- Google fonts cdn --------------------------------------------*/
- WebFont.load({
-    google: {     
-	  families: ['Lobster', 'Oswald:light', 'Oswald:regular', 'Roboto', 'Ubuntu']
-    }
-  });
+//  WebFont.load({
+//     google: {     
+// 	  families: ['Lobster', 'Oswald:light', 'Oswald:regular', 'Roboto', 'Ubuntu']
+//     }
+//   });
