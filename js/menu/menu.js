@@ -228,7 +228,7 @@ var ddsmoothmenu = {
 
 mobilemediaquery: "screen and (max-width: 920px)", // CSS media query string that when matched activates mobile menu (while hiding default)
 //Specify full URL to down and right arrow images (23 is padding-right for top level LIs with drop downs, 6 is for vertical top level items with fly outs):
-arrowimages: {down:['downarrowclass', 'down.gif'], right:['rightarrowclass', 'js/menu/right.png', 6], left:['leftarrowclass', 'js/menu/left.gif']},
+arrowimages: {down:['downarrowclass'], right:['rightarrowclass', 'js/menu/right.png', 6], left:['leftarrowclass', 'js/menu/left.gif']},
 transition: {overtime:300, outtime:300}, //duration of slide in/ out animation, in milliseconds
 mobiletransition: 200, // duration of slide animation in mobile menu, in milliseconds
 shadow: false, //enable shadow? (offsets now set in ddsmoothmenu.css stylesheet)
