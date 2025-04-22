@@ -4227,7 +4227,7 @@ em.mm-counter + a.mm-next + label.mm-toggle + span {
 .mh-head .hamburger-inner,
 .mh-head .hamburger-inner:after,
 .mh-head .hamburger-inner:before {
-  background: #fff;
+  background: #d90707;
 }
 
 /* -------------------------------------------------------------------------------------------- 
