@@ -13,10 +13,11 @@
             <span class="mh-btns-left">
                 <button class="hamburger hamburger--collapse"><span class="hamburger-box"><span class="hamburger-inner"></span></span></button>
             </span>
-        </span>
+        </span>0
         <span class="mh-text">Menu</span>
     </div>
     <!-- Replaced <mobilemenu> with static content -->
+
     <nav id="menu">
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -36,7 +37,7 @@
         </ul>
     </nav>
 </div>
-
+ 
 <header class="headerWrap float-panel" data-top="0" data-scroll="200">
     <div class="header-top">
         <div class="container" id="topcall">
@@ -62,7 +63,7 @@
     </div>
     <div class="header-btm">
         <div class="container">
-            <figure class="siteLogo"><img src="./images/Fusion-Fame-Hair-Studio.png" alt="Fusion Fame - Best Hair patch service in hyderabad" width="133" height="165"></figure>
+            <figure class="siteLogo"><img src="./images/Fusion-Fame-Hair-Studio.png" class="logo-img" alt="Fusion Fame - Best Hair patch service in hyderabad" ></figure>
             <div class="serveBtns" id="top-serv-menu">
                 <!-- Replaced <top-serv-menu> with static content -->
                 <ul>
@@ -78,5 +79,19 @@
             <div class="clear"></div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const hamburger = document.querySelector('.hamburger');
+          const menu = document.getElementById('menu');
+      
+          if (hamburger && menu) {
+            hamburger.addEventListener('click', function () {
+              this.classList.toggle('is-active'); // animation class
+              menu.classList.toggle('menu-open'); // visibility class
+            });
+          }
+        });
+      </script>
+      
 </header>
 
