@@ -89,7 +89,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div id="page">
     <div id="commonNav"></div>
-<div class="bannerWrapp"> <img src="images/banner/what-we-do-banner.jpg" alt="best non surgical hair replacement in kerala" width="1300" height="489">
+<div class="bannerWrapp"> <img src="./images/contact-banner.png" alt="best non surgical hair replacement in kerala" width="1300" height="489">
   <div class="clear"></div>
 </div>
 <!-- end banner wrapp -->
@@ -97,7 +97,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="maintenceBlock">
     <div class="container">
       <article>
-        <h1 class="about-title"> what we do <span>Hair's Culture</span></h1>
+        <h1 class="about-title"> what we do <span>Fusion Fame Hair Studio</span></h1>
         <div class="what-we-blocks">
         <ul>
         <li style="background-color:#dde3e7">
@@ -405,278 +405,294 @@ refreshButton.onclick = function() {
 });
 </script>
 <script src="js/css3-animate-it.js" ></script>
+<!-- jQuery must load first -->
+<script src="js/jqueryAll.js"></script>
+<script src="js/assets/owl.carousel.js"></script>
+
 <script>
-$(".sliding-link").click(function(e) {
+// Smooth scroll
+$(document).ready(function () {
+  $(".sliding-link").click(function (e) {
     e.preventDefault();
     var aid = $(this).attr("href");
-    $('html,body').animate({scrollTop: $(aid).offset().top},'slow');
-})
-</script>
-<script src="js/jqueryAll.js" ></script>
-<script src="js/assets/owl.carousel.js"></script>
-<script>
-$(document).ready(function(){
-$('.partnerSlide').owlCarousel({
-         loop:true,
-    margin:10,
-    responsiveClass:true,
-	autoplay:true,
-	nav:true,
-    responsive:{
-		0:{
-            items:1
-        },
-        540:{
-            items:2
-        },
-        800:{
-            items:3
-        },
-        1000:{
-            items:3
-        }
+    if ($(aid).length) {
+      $("html, body").animate({ scrollTop: $(aid).offset().top }, "slow");
     }
-})
-$('.pdtSlide').owlCarousel({
-      loop:true,
-    margin:10,
-    responsiveClass:true,
-	autoplay:true,
-    responsive:{
-		0:{
-            items:2
-        },
-        420:{
-            items:3
-        },
-        600:{
-            items:4
-        },
-        1000:{
-            items:4,
-            nav:true,
-            loop:true
-        }
+  });
+
+  // Owl Carousel - Partner
+  $(".partnerSlide").owlCarousel({
+    loop: true,
+    margin: 10,
+    responsiveClass: true,
+    autoplay: true,
+    nav: true,
+    responsive: {
+      0: { items: 1 },
+      540: { items: 2 },
+      800: { items: 3 },
+      1000: { items: 3 }
     }
-})
+  });
+
+  // Owl Carousel - Product
+  $(".pdtSlide").owlCarousel({
+    loop: true,
+    margin: 10,
+    responsiveClass: true,
+    autoplay: true,
+    responsive: {
+      0: { items: 2 },
+      420: { items: 3 },
+      600: { items: 4 },
+      1000: { items: 4, nav: true }
+    }
+  });
 });
 </script>
+
+<!-- Marquee 1 -->
 <script>
-window.addEventListener('load', function () {
-	function go() {
-		i = i < width ? i + step : 1;
-		m.style.marginLeft = -i + 'px';
-	}
-	var i = 0,
-		step = 3,
-		space = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-	var m = document.getElementById('marquee');
-	var t = m.innerHTML; //text
-	m.innerHTML = t + space;
-	m.style.position = 'absolute'; // http://stackoverflow.com/questions/2057682/determine-pixel-length-of-string-in-javascript-jquery/2057789#2057789
-	var width = (m.clientWidth + 1);
-	m.style.position = '';
-	m.innerHTML = t + space + t + space + t + space + t + space + t + space + t + space + t + space;
-	m.addEventListener('mouseenter', function () {
-		step = 0;
-	}, true);
-	m.addEventListener('mouseleave', function () {
-		step = 3;
-	}, true);
-	var x = setInterval(go, 100);
-}, true);
+window.addEventListener("load", function () {
+  var m = document.getElementById("marquee");
+  if (!m) return;
+  var i = 0,
+    step = 3,
+    space = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+    t = m.innerHTML;
+
+  m.innerHTML = (t + space).repeat(7);
+  var width = m.clientWidth + 1;
+
+  m.addEventListener("mouseenter", () => step = 0);
+  m.addEventListener("mouseleave", () => step = 3);
+
+  setInterval(() => {
+    i = i < width ? i + step : 1;
+    m.style.marginLeft = -i + "px";
+  }, 100);
+});
 </script>
-<div></div>
+
+<!-- Load common HTML -->
 <script>
-    Promise.all([
-      fetch("commonNav.html").then((res) => res.text()),
-      fetch("footer.html").then((res) => res.text()),
-      
-    ]).then(([navHTML,footerCommon]) => {
-      document.getElementById("commonNav").outerHTML = navHTML;
-      document.getElementById("footerCommon").outerHTML = footerCommon;
-    });
-  </script>
+Promise.all([
+  fetch("commonNav.html").then(res => res.text()),
+  fetch("footer.html").then(res => res.text())
+]).then(([navHTML, footerCommon]) => {
+  const nav = document.getElementById("commonNav");
+  const footer = document.getElementById("footerCommon");
+  if (nav) nav.outerHTML = navHTML;
+  if (footer) footer.outerHTML = footerCommon;
+});
+</script>
+
+<!-- Modal Handling -->
 <script>
-// Get the modal
-var modal = document.getElementById('myModal');
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+window.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("myModal");
+  const btn = document.getElementById("myBtn");
+  const span = document.getElementsByClassName("close")[0];
+
+  if (btn && modal && span) {
+    btn.onclick = () => modal.style.display = "block";
+    span.onclick = () => modal.style.display = "none";
+  }
+
+  window.addEventListener("click", function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
     }
+  });
+});
+</script>
+
+<!-- Multiple Modals Support -->
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".button").forEach(btn => {
+    btn.onclick = function () {
+      const modalId = btn.getAttribute("data-modal");
+      const modal = document.getElementById(modalId);
+      if (modal) modal.style.display = "block";
+    };
+  });
+
+  document.querySelectorAll(".close").forEach(btn => {
+    btn.onclick = function () {
+      const modal = btn.closest(".modal");
+      if (modal) modal.style.display = "none";
+    };
+  });
+
+  window.addEventListener("click", function (event) {
+    if (event.target.classList.contains("modal")) {
+      event.target.style.display = "none";
+    }
+  });
+});
+</script>
+
+<!-- Marquee 2 -->
+<script>
+window.addEventListener("load", function () {
+  var m = document.getElementById("marquee01");
+  if (!m) return;
+  var i = 0,
+    step = 3,
+    space = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+    t = m.innerHTML;
+
+  m.innerHTML = (t + space).repeat(7);
+  var width = m.clientWidth + 1;
+
+  m.addEventListener("mouseenter", () => step = 0);
+  m.addEventListener("mouseleave", () => step = 3);
+
+  setInterval(() => {
+    i = i < width ? i + step : 1;
+    m.style.marginLeft = -i + "px";
+  }, 100);
+});
+</script>
+
+<!-- Contact Quick Form -->
+<script>
+function sendContactQuick() {
+  if (validateContactQuick()) {
+    jQuery.ajax({
+      url: "contact_mail.php",
+      type: "POST",
+      data: {
+        userNameQuick: $("#userNameQuick").val(),
+        userEmailQuick: $("#userEmailQuick").val(),
+        phoneQuick: $("#phoneQuick").val(),
+        commentsQuick: $("#commentsQuick").val(),
+        captchaQuick: $("#captchaQuick").val()
+      },
+      success: function (data) {
+        $("#mail-statusQuick").html(data);
+      }
+    });
+  }
+}
+
+function validateContactQuick() {
+  let valid = true;
+  $(".demoInputBoxQuick").css("background-color", "");
+  $(".info").html("");
+
+  if (!$("#userNameQuick").val()) {
+    $("#userName-infoQuick").html("(required)");
+    $("#userNameQuick").css("background-color", "#FFFFDF");
+    valid = false;
+  }
+
+  const email = $("#userEmailQuick").val();
+  if (!email) {
+    $("#userEmail-infoQuick").html("(required)");
+    $("#userEmailQuick").css("background-color", "#FFFFDF");
+    valid = false;
+  } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+    $("#userEmail-infoQuick").html("(invalid)");
+    $("#userEmailQuick").css("background-color", "#FFFFDF");
+    valid = false;
+  }
+
+  if (!$("#phoneQuick").val()) {
+    $("#phone-infoQuick").html("(required)");
+    $("#phoneQuick").css("background-color", "#FFFFDF");
+    valid = false;
+  }
+
+  if (!$("#captchaQuick").val()) {
+    $("#captcha-infoQuick").html("(required)");
+    $("#captchaQuick").css("background-color", "#FFFFDF");
+    valid = false;
+  }
+
+  return valid;
+}
+
+function refreshCaptchaQuick() {
+  $("#captcha_codeQuick").attr("src", "captcha_code.php");
 }
 </script>
 
-<script>
-var modalBtns = [...document.querySelectorAll(".button")];
-modalBtns.forEach(function(btn){
-  btn.onclick = function() {
-    var modal = btn.getAttribute('data-modal');
-    document.getElementById(modal).style.display = "block";
-  }
-});
-var closeBtns = [...document.querySelectorAll(".close")];
-closeBtns.forEach(function(btn){
-  btn.onclick = function() {
-    var modal = btn.closest('.modal');
-    modal.style.display = "none";
-  }
-});
-window.onclick = function(event) {
-  if (event.target.className === "modal") {
-    event.target.style.display = "none";
-  }
-}
-</script>
-<script>
-window.addEventListener('load', function () {
-	function go() {
-		i = i < width ? i + step : 1;
-		m.style.marginLeft = -i + 'px';
-	}
-	var i = 0,
-		step = 3,
-		space = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-	var m = document.getElementById('marquee01');
-	var t = m.innerHTML; //text
-	m.innerHTML = t + space;
-	m.style.position = 'absolute'; 
-	
-	var width = (m.clientWidth + 1);
-	m.style.position = '';
-	m.innerHTML = t + space + t + space + t + space + t + space + t + space + t + space + t + space;
-	m.addEventListener('mouseenter', function () {
-		step = 0;
-	}, true);
-	m.addEventListener('mouseleave', function () {
-		step = 3;
-	}, true);
-	var x = setInterval(go, 100);
-}, true);
-</script>
-<script>
-function sendContactQuick() {
-	var valid;	
-	valid = validateContactQuick();
-	if(valid) {
-		jQuery.ajax({
-		url: "contact_mail.php",
-		data:'userNameQuick='+$("#userNameQuick").val()+'&userEmailQuick='+$("#userEmailQuick").val()+'&phoneQuick='+$("#phoneQuick").val()+'&commentsQuick='+$("#commentsQuick").val()+'&captchaQuick='+$("#captchaQuick").val(),
-		type: "POST",
-		success:function(data){
-		$("#mail-statusQuick").html(data);
-		},
-		error:function (){}
-		});
-	}
-}
-function validateContactQuick() {
-	var valid = true;	
-	$(".demoInputBoxQuick").css('background-color','');
-	$(".info").html('');
-	
-	if(!$("#userNameQuick").val()) {
-		$("#userName-infoQuick").html("(required)");
-		$("#userNameQuick").css('background-color','#FFFFDF');
-		valid = false;
-	}
-	if(!$("#userEmailQuick").val()) {
-		$("#userEmail-infoQuick").html("(required)");
-		$("#userEmailQuick").css('background-color','#FFFFDF');
-		valid = false;
-	}
-	if(!$("#userEmailQuick").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
-		$("#userEmail-infoQuick").html("(invalid)");
-		$("#userEmailQuick").css('background-color','#FFFFDF');
-		valid = false;
-	}
-	if(!$("#phoneQuick").val()) {
-		$("#phone-infoQuick").html("(required)");
-		$("#phoneQuick").css('background-color','#FFFFDF');
-		valid = false;
-	}
-	if(!$("#captchaQuick").val()) {
-		$("#captcha-infoQuick").html("(required)");
-		$("#captchaQuick").css('background-color','#FFFFDF');
-		valid = false;
-	}
-	return valid;
-}
-function refreshCaptchaQuick() {
-	$("#captcha_codeQuick").attr('src','captcha_code.php');
-}
-</script>
+<!-- Enquiry Form -->
 <script>
 function sendContactEnq() {
-	var valid;	
-	valid = validateContactEnq();
-	if(valid) {
-		jQuery.ajax({
-		url: "enquiry-action.php",
-		data:'nme='+$("#nme").val()+'&mobile='+$("#mobile").val()+'&email='+$("#email").val()+'&country='+$("#country").val()+'&city='+$("#city").val()+'&comments='+$("#comments").val()+'&captcha='+$("#captcha").val(),
-		type: "POST",
-		success:function(data){
-		$("#mail-statusEnq").html(data);
-		},
-		error:function (){}
-		});
-	}
+  if (validateContactEnq()) {
+    jQuery.ajax({
+      url: "enquiry-action.php",
+      type: "POST",
+      data: {
+        nme: $("#nme").val(),
+        mobile: $("#mobile").val(),
+        email: $("#email").val(),
+        country: $("#country").val(),
+        city: $("#city").val(),
+        comments: $("#comments").val(),
+        captcha: $("#captcha").val()
+      },
+      success: function (data) {
+        $("#mail-statusEnq").html(data);
+      }
+    });
+  }
 }
+
 function validateContactEnq() {
-	var valid = true;	
-	$(".demoInputBox").css('background-color','');
-	$(".info").html('');
-	if(!$("#nme").val()) {
-		$("#userName-info").html("(required)");
-		$("#nme").css('background-color','#FFFFDF');
-		valid = false;
-	}
-		if(!$("#mobile").val()) {
-		$("#userMobile-info").html("(required)");
-		$("#mobile").css('background-color','#FFFFDF');
-		valid = false;
-	}
-		if(!$("#email").val()) {
-		$("#userEmail-info").html("(required)");
-		$("#email").css('background-color','#FFFFDF');
-		valid = false;
-	}
-	if(!$("#email").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
-		$("#userEmail-info").html("(invalid)");
-		$("#email").css('background-color','#FFFFDF');
-		valid = false;
-	}
-	if(!$("#captcha").val()) {
-		$("#captcha-info").html("(required)");
-		$("#captcha").css('background-color','#FFFFDF');
-		valid = false;
-	}
-	return valid;
+  let valid = true;
+  $(".demoInputBox").css("background-color", "");
+  $(".info").html("");
+
+  const email = $("#email").val();
+
+  if (!$("#nme").val()) {
+    $("#userName-info").html("(required)");
+    $("#nme").css("background-color", "#FFFFDF");
+    valid = false;
+  }
+
+  if (!$("#mobile").val()) {
+    $("#userMobile-info").html("(required)");
+    $("#mobile").css("background-color", "#FFFFDF");
+    valid = false;
+  }
+
+  if (!email) {
+    $("#userEmail-info").html("(required)");
+    $("#email").css("background-color", "#FFFFDF");
+    valid = false;
+  } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+    $("#userEmail-info").html("(invalid)");
+    $("#email").css("background-color", "#FFFFDF");
+    valid = false;
+  }
+
+  if (!$("#captcha").val()) {
+    $("#captcha-info").html("(required)");
+    $("#captcha").css("background-color", "#FFFFDF");
+    valid = false;
+  }
+
+  return valid;
 }
+
 function refreshCaptcha() {
-	$("#captcha_code").attr('src','captcha_code.php');
+  $("#captcha_code").attr("src", "captcha_code.php");
 }
 </script>
-      <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49877708-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'UA-49877708-1');
-    </script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-49877708-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag("js", new Date());
+  gtag("config", "UA-49877708-1");
+</script>
+
 </body>
 </html>
