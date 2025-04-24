@@ -5227,7 +5227,8 @@ img {
 }
 
 .sub-bottom-wrapp {
-  background-image: url(../images/widget-hait-trans.png);
+  /* background-image: url(../images/widget-hait-trans.png); */
+  background-color: #431e61;
 }
 
 .widget-fue-block {

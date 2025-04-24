@@ -404,25 +404,7 @@ var closeBtns = [...document.querySelectorAll(".close")];
 closeBtns.forEach(function(btn){ btn.onclick = function() { btn.closest('.modal').style.display = "none"; } });
 window.onclick = function(event) { if (event.target.className === "modal") { event.target.style.display = "none"; } }
 </script>
-<script>
-window.addEventListener('load', function () {
-	function go() {
-		i = i < width ? i + step : 1;
-		m.style.marginLeft = -i + 'px';
-	}
-	var i = 0, step = 3, space = '     ';
-	var m = document.getElementById('marquee01');
-	var t = m.innerHTML;
-	m.innerHTML = t + space;
-	m.style.position = 'absolute';
-	var width = (m.clientWidth + 1);
-	m.style.position = '';
-	m.innerHTML = t + space + t + space + t + space + t + space + t + space + t + space + t + space;
-	m.addEventListener('mouseenter', function () { step = 0; }, true);
-	m.addEventListener('mouseleave', function () { step = 3; }, true);
-	var x = setInterval(go, 100);
-}, true);
-</script>
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49877708-1"></script>
 <script>
