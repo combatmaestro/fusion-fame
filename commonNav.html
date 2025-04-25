@@ -78,12 +78,14 @@
             </div>
             <div class="clear"></div>
         </div>
+        <div id="whatsappBtn"></div>
     </div>
     <script>
+          Promise.all([
+          fetch("whatsappCommon.html").then((res) => res.text()),
+        ]).then(([navHTML]) => {
+          document.getElementById("whatsappBtn").outerHTML = navHTML;})
         document.addEventListener('DOMContentLoaded', function () {
-          const hamburger = document.querySelector('.hamburger');
-          const menu = document.getElementById('menu');
-      
           if (hamburger && menu) {
             hamburger.addEventListener('click', function () {
               this.classList.toggle('is-active'); // animation class
