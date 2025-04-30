@@ -30,12 +30,14 @@
 
 <link rel="stylesheet" href="js/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="js/assets/owl.theme.default.min.css">
+<script src="js/assets/owl.carousel.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <link href="css/hairsculture-layout-v8.css" rel="stylesheet">
-<link href="css/animations.css"  rel="stylesheet">
+<!-- <link href="css/animations.css" - rel="stylesheet"> -->
 <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
-<link rel="manifest" href="images/favicons/site.webmanifest">
+<!-- <link rel="manifest" href="images/favicons/site.webmanifest"> -->
 <link rel="mask-icon" href="images/favicons/safari-pinned-tab.svg" color="#5bbad5">
 <link rel="shortcut icon" href="images/favicons/favicon.ico">
 <link rel="shortcut icon" type="image/x-icon" href="images/hairs_icon.ico">
@@ -46,6 +48,27 @@
 <meta property="og:image" content="https://www.hairsculture.com/images/twitter.png">
 <meta property="og:title" content="best hair transplant in Calicut | Hair Fixing cost | Hair replacement | Kerala">
 <meta property="og:description" content="Non surgical hair replacement in Thrissur. Our hair fixing services are available in Kerala, Dubai, India, Qatar, Kochi, Bangalore, Kollam and Calicut. Hair restoration clinic in Cochin">
+<script src="js/jquery.min.js"></script>
+
+<!-- jQuery Appear (for css3-animate-it.js) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.appear/0.4.1/jquery.appear.min.js"></script>
+
+<!-- Owl Carousel -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<!-- Mmenu Plugin -->
+<script src="js/menu/menu.js"></script>
+
+<!-- Mhead Plugin -->
+<script src="js/jquery.mhead.js"></script> <!-- Ensure this exists -->
+
+<!-- CSS3 Animate It -->
+<script src="js/css3-animate-it.js"></script>
+
+<!-- Other Scripts -->
+<script src="js/jqueryAll.js"></script>
+<script src="layout/script.js"></script>
+<script src="js/jquery.form-validator.min.js"></script>
 <script>
 function showIt() {
   document.getElementById("mobMEnu").style.visibility = "visible";
@@ -326,6 +349,8 @@ Thrissur, Kerala-680020</p>
          </style>
 </form>
  <script async src="https://www.google.com/recaptcha/api.js?render=6Le8imcbAAAAABhZTVIXqKYojcxzWDUxZrQ6KyXg"></script>
+
+ <script src="js/jqueryAll.js"></script>
  <script>
  var refreshButton = document.querySelector(".refresh-captcha");
 refreshButton.onclick = function() {
@@ -384,71 +409,47 @@ refreshButton.onclick = function() {
   </div>
   <div class="clear"></div>
   </div>
-<script src="layout/vue.js"></script>
-<script src="layout/addressslider.js?v=2"></script>
 
-<script src="layout/layout.js"></script>
+
+<!-- <script src="layout/layout.js"></script> -->
   
-<script src="js/jquery.min.js" ></script>
 <script src="js/webfontloader.js" ></script>
 <script src="js/menu/menu.js"></script>
-<script >
- $(function() {
- //	create a menu
- $('#menu').mmenu();
- //	fire the plugin
- $('.mh-head.first').mhead({ scroll: false });
- $('.mh-head.second').mhead({ scroll: { hide: 200 }				});				
-			});			
-			  $(document).ready(function() {
-    $("#menu").delay(2000).fadeIn(500);
-});
-</script>
+
 <script src="js/css3-animate-it.js" ></script>
 <!-- jQuery must load first -->
-<script src="js/jqueryAll.js"></script>
+
 <script src="js/assets/owl.carousel.js"></script>
 
 <script>
-// Smooth scroll
-$(document).ready(function () {
-  $(".sliding-link").click(function (e) {
-    e.preventDefault();
-    var aid = $(this).attr("href");
-    if ($(aid).length) {
-      $("html, body").animate({ scrollTop: $(aid).offset().top }, "slow");
-    }
-  });
+  $(document).ready(function() {
+      $('.partnerSlide').owlCarousel({
+          loop: true,
+          margin: 10,
+          responsiveClass: true,
+          autoplay: true,
+          nav: true,
+          responsive: {
+              0: { items: 1 },
+              540: { items: 2 },
+              800: { items: 3 },
+              1000: { items: 3 }
+          }
+      });
+      $('.pdtSlide').owlCarousel({
+          loop: true,
+          margin: 10,
+          responsiveClass: true,
+          autoplay: true,
+          responsive: {
+              0: { items: 2 },
+              420: { items: 3 },
+              600: { items: 4 },
+              1000: { items: 4, nav: true, loop: true }
+          }
+      });
 
-  // Owl Carousel - Partner
-  $(".partnerSlide").owlCarousel({
-    loop: true,
-    margin: 10,
-    responsiveClass: true,
-    autoplay: true,
-    nav: true,
-    responsive: {
-      0: { items: 1 },
-      540: { items: 2 },
-      800: { items: 3 },
-      1000: { items: 3 }
-    }
   });
-
-  // Owl Carousel - Product
-  $(".pdtSlide").owlCarousel({
-    loop: true,
-    margin: 10,
-    responsiveClass: true,
-    autoplay: true,
-    responsive: {
-      0: { items: 2 },
-      420: { items: 3 },
-      600: { items: 4 },
-      1000: { items: 4, nav: true }
-    }
-  });
-});
 </script>
 
 <!-- Marquee 1 -->
@@ -476,15 +477,19 @@ window.addEventListener("load", function () {
 
 <!-- Load common HTML -->
 <script>
-Promise.all([
-  fetch("commonNav.html").then(res => res.text()),
-  fetch("footer.html").then(res => res.text())
-]).then(([navHTML, footerCommon]) => {
-  const nav = document.getElementById("commonNav");
-  const footer = document.getElementById("footerCommon");
-  if (nav) nav.outerHTML = navHTML;
-  if (footer) footer.outerHTML = footerCommon;
-});
+  Promise.all([
+      fetch("commonNav.html").then((res) => res.text()),
+      fetch("footer.html").then((res) => res.text()),
+  ]).then(([navHTML, footerCommon]) => {
+      document.getElementById("commonNav").outerHTML = navHTML;
+      document.getElementById("footerCommon").outerHTML = footerCommon;
+      $('#menu').mmenu(); // Initialize Mmenu after nav is loaded
+      $('.mh-head.first').mhead({ scroll: false }); // Ensure these are needed
+      $('.mh-head.second').mhead({ scroll: { hide: 200 } });
+      $(document).ready(function() {
+          $("#menu").delay(2000).fadeIn(500); // Optional fade-in
+      });
+  });
 </script>
 
 <!-- Modal Handling -->

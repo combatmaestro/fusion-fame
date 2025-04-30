@@ -26,12 +26,10 @@
 <meta property="og:image" content="images/favicons/og-image.jpg">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <!-- never delete this line -->
 <!--[if lt IE 9]>
-<script src="js/html5shiv.js"></script>
 <![endif]-->
-<link rel="stylesheet" href="js/assets/owl.carousel.min.css">
-<link rel="stylesheet" href="js/assets/owl.theme.default.min.css">
+
 <link href="css/hairsculture-layout-v8.css?ver=1" rel="stylesheet">
-<link href="css/animations.css"  rel="stylesheet">
+<!-- <link href="css/animations.css"  rel="stylesheet"> -->
 <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
@@ -44,6 +42,18 @@
 <link rel="shortcut icon" type="image/x-icon" href="images/hairs_icon.ico">
 <meta property="og:image" content="https://www.hairsculture.com/images/hairs-culture-logo.jpg">
 <meta property="og:image" content="https://www.hairsculture.com/images/twitter.png">
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/menu/menu.js"></script>
+<script src="js/menu/menu.js"></script>
+<script src="js/css3-animate-it.js"></script>
+<script src="js/jqueryAll.js"></script>
+<script src="layout/script.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
 <style>
 .enqu-form .form-btn {	width:92px; margin:15px auto 0 auto; float:left; margin-left:15px}
 </style>
@@ -172,52 +182,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		 }
 		 .elem-group { padding-bottom:10px }
          </style>
-  <script async src="https://www.google.com/recaptcha/api.js?render=6Le8imcbAAAAABhZTVIXqKYojcxzWDUxZrQ6KyXg"></script>
  <script>
  var refreshButton = document.querySelector(".refresh-captcha");
 refreshButton.onclick = function() {
   document.querySelector(".captcha-image").src = 'captcha.php?' + Date.now();
 }
  </script>
-    <script>
-        $('#contact-form').submit(function(event) {
-            event.preventDefault(); // Prevent direct form submission
-            $('#alert').text('Processing...').fadeIn(0); 
-			// Display "Processing" to let the user know that the form is being submitted
-            grecaptcha.ready(function () {
-                grecaptcha.execute('6Le8imcbAAAAABhZTVIXqKYojcxzWDUxZrQ6KyXg', { action: 'contact' }).then(function (token) {
-                    var recaptchaResponse = document.getElementById('recaptchaResponse');
-                    recaptchaResponse.value = token;
-                    // Make the Ajax call here
-                    $.ajax({
-                        url: 'contact_mail.php',
-                        type: 'post',
-                        data: $('#contact-form').serialize(),
-                        dataType: 'json',
-                        success: function( _response ){
-                            // The Ajax request is a success. _response is a JSON object
-                            var error = _response.error;
-                            var success = _response.success;
-                            if(error != "") {
-                                // In case of error, display it to user
-                                $('#alert').html(error);
-                            }
-                            else {
-                                // In case of success, display it to user and remove the submit button
-                                $('#alert').html(success);
-                                $('#submit-button').remove();
-                            }
-                        },
-                        error: function(jqXhr, json, errorThrown){
-                            // In case of Ajax error too, display the result
-                            var error = jqXhr.responseText;
-                            $('#alert').html(error);
-                        }
-                    });
-                });
-            });
-        });
-    </script>
+    
   
     <style> .grecaptcha-badge { z-index:60000000 !important }  
 #alert span { display:block; color:#fff; margin:10px 0; text-align:center; border-radius:2px; padding:10px  }
@@ -278,35 +249,144 @@ All 7 days of week
 <!-- end page -->
 <div id="backtop" data-v-w="300, 1200">▲</div>
 <!-- Modal Structure -->
-<div id="mapModal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);">
-  <div style="background-color: #fff; margin: 5% auto; padding: 20px; width: 70%; max-width: 700px; height: 80%; position: relative;">
-    <span class="close" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">×</span>
-    <div id="modalContent" style="height: 100%; overflow-y: auto;">
-      <!-- Map content will be injected here -->
-    </div>
+<div id="scrollingDiv01">
+  <button id="myBtn">
+  <img src="./images/call-back-large.png" alt="Best hair replacement in cochin" width="54" height="326" class="hide990"  />
+  <img src="./images/call-back.png" alt="hair transplant in Kerala" width="350" height="67" class="view990"   />
+  </button>
   </div>
-</div>
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+    <div class="modal-header">      
+            <h4 class="modal-title"> Request a call back </h4>
+                   <div class="close" >&times;</div>             
+                <div class="clearfix"></div>
+          </div>
+      <div class="clear"></div>
+      <div class="modal-body" id="rootmodal">
+    <div class="enqury-MOdel">
+    <form method="post" autocomplete="off" action="contact_mail_quick.php">  
+  <div class="enqu-form">
+       <div id="frmContact">
+  <div id="mail-statusQuick"></div>
+  <div class="form-group">
+                      <span id="userName-infoQuick" class="info"></span>
+  <input class="form-control demoInputBoxQuick" type="text" name="userName" id="userNameQuick" placeholder="Enter Your Name" required autocomplete="off"  >
+                </div>
+  <div class="form-group">
+                        <span id="userEmail-infoQuick" class="info"></span>
+  <input class="form-control demoInputBoxQuick" type="text" name="userEmail" id="userEmailQuick" placeholder="Enter Your Email" required autocomplete="off"  >
+                </div>
+  <div class="form-group">
+                        <span id="phone-infoQuick" class="info"></span>
+  <input class="form-control demoInputBoxQuick" type="text" name="mobile" id="phoneQuick" placeholder="Enter Your Mobile Number" required autocomplete="off"  >
+                </div>
+  <div class="form-group">
+                  <span id="comments-infoQuick" class="info"></span>    
+      <textarea name="commentsQuick" id="commentsQuick" class="form-control txtar" placeholder="Comments (if any)" cols="" rows=""></textarea>
+                </div>
+  <div class="enquiry-block ">
+  <div class="elem-group">
+      <span class="captExt">Please Enter the Captcha Text </span>
+  <div class="clear"></div>
+      <img src="captcha.php" alt="CAPTCHA" class="captcha-image"><img class="refresh-captcha" src="./images/refresh.png" alt="best hair replacement in kollam" style="width:20px; height:20px"/> 
+      <input type="text" id="captcha" name="captcha_challenge" >
+  </div>
+  </div>
+  <div class="enquiry-block ">
+  <div class="enquiry-btn">
+  <button name="submit" class="btnAction submit-btn" onClick="sendContactQuick();">SUBMIT</button>
+  </div>
+  </div>
+  </div>
+           <div class="clear"></div>
+           </div>
+           <style>
+           .captExt {     color: #353535; display:block; padding:8px 0 5px;
+      width: 100%;
+      font-size: 10.5pt;
+      font-family: 'Montserrat', sans-serif;
+       }
+       .elem-group { padding-bottom:10px }
+           </style>
+  </form>
+   <script>
+   var refreshButton = document.querySelector(".refresh-captcha");
+  refreshButton.onclick = function() {
+    document.querySelector(".captcha-image").src = 'captcha.php?' + Date.now();
+  }
+   </script>
+  
+      <script>
+          $('#contact-form').submit(function(event) {
+              event.preventDefault(); // Prevent direct form submission
+              $('#alert').text('Processing...').fadeIn(0); 
+        // Display "Processing" to let the user know that the form is being submitted
+              grecaptcha.ready(function () {
+                  grecaptcha.execute('6Le8imcbAAAAABhZTVIXqKYojcxzWDUxZrQ6KyXg', { action: 'contact' }).then(function (token) {
+                      var recaptchaResponse = document.getElementById('recaptchaResponse');
+                      recaptchaResponse.value = token;
+                      // Make the Ajax call here
+                      $.ajax({
+                          url: 'contact_mail.php',
+                          type: 'post',
+                          data: $('#contact-form').serialize(),
+                          dataType: 'json',
+                          success: function( _response ){
+                              // The Ajax request is a success. _response is a JSON object
+                              var error = _response.error;
+                              var success = _response.success;
+                              if(error != "") {
+                                  // In case of error, display it to user
+                                  $('#alert').html(error);
+                              }
+                              else {
+  // In case of success, display it to user and remove the submit button
+                                  $('#alert').html(success);
+                                  $('#submit-button').remove();
+                              }
+                          },
+                          error: function(jqXhr, json, errorThrown){
+                              // In case of Ajax error too, display the result
+                              var error = jqXhr.responseText;
+                              $('#alert').html(error);
+                          }
+                      });
+                  });
+              });
+          });
+      </script>
+          <script>
+            Promise.all([
+                fetch("commonNav.html").then((res) => res.text()),
+                fetch("footer.html").then((res) => res.text()),
+            ]).then(([navHTML, footerCommon]) => {
+                document.getElementById("commonNav").outerHTML = navHTML;
+                document.getElementById("footerCommon").outerHTML = footerCommon;
+                $('#menu').mmenu(); // Initialize Mmenu after nav is loaded
+                $('.mh-head.first').mhead({ scroll: false }); // Ensure these are needed
+                $('.mh-head.second').mhead({ scroll: { hide: 200 } });
+                $(document).ready(function() {
+                    $("#menu").delay(2000).fadeIn(500); // Optional fade-in
+                });
+            });
+        </script>
+      <style> .grecaptcha-badge { z-index:60000000 !important }  
+  #alert span { display:block; color:#fff; margin:10px 0; text-align:center; border-radius:2px; padding:10px  }
+  #alert span.success { background-color:#07B700 }
+  #alert span.error { background-color:#9E0204 }
+  </style>
+             <div class="clear"></div>
+          </div>
+          <div class="clear"></div>
+    </div>
+         <div class="clear"></div>
+          </div>
+          <div class="clear"></div>
+    </div>
 
-<script src="layout/vue.js"></script>
-<script src="layout/addressslider.js?v=2"></script>
-<script src="layout/layout.js"></script>
-<script src="js/jquery.min.js"></script>
-<script src="js/webfontloader.js"></script>
-<script src="js/menu/menu.js"></script>
-<script>
-    Promise.all([
-      fetch("commonNav.html").then((res) => res.text()),
-      fetch("footer.html").then((res) => res.text()),
-      
-    ]).then(([navHTML,footerCommon]) => {
-      document.getElementById("commonNav").outerHTML = navHTML;
-      document.getElementById("footerCommon").outerHTML = footerCommon;
-    });
-  </script>
-<script>
-
-</script>
-<script src="js/css3-animate-it.js"></script>
 <script>
 $(".sliding-link").click(function(e) {
     e.preventDefault();
@@ -314,8 +394,6 @@ $(".sliding-link").click(function(e) {
     $('html,body').animate({scrollTop: $(aid).offset().top},'slow');
 })
 </script>
-<script src="js/jqueryAll.js"></script>
-<script src="js/assets/owl.carousel.js"></script>
 <script>
 $(document).ready(function(){
 $('.partnerSlide').owlCarousel({
@@ -353,18 +431,18 @@ window.addEventListener('load', function () {
 	}
 	var i = 0, step = 3, space = '     ';
 	var m = document.getElementById('marquee');
-	var t = m.innerHTML;
-	m.innerHTML = t + space;
-	m.style.position = 'absolute';
+	var t = m?.innerHTML;
+	m?.innerHTML = t + space;
+	m?.style.position = 'absolute';
 	var width = (m.clientWidth + 1);
-	m.style.position = '';
-	m.innerHTML = t + space + t + space + t + space + t + space + t + space + t + space + t + space;
-	m.addEventListener('mouseenter', function () { step = 0; }, true);
-	m.addEventListener('mouseleave', function () { step = 3; }, true);
+	m?.style.position = '';
+	m?.innerHTML = t + space + t + space + t + space + t + space + t + space + t + space + t + space;
+	m?.addEventListener('mouseenter', function () { step = 0; }, true);
+	m?.addEventListener('mouseleave', function () { step = 3; }, true);
 	var x = setInterval(go, 100);
 }, true);
 </script>
-<link href="js/theme-default.min.css" rel="stylesheet" type="text/css" />
+<!-- <link href="js/theme-default.min.css" rel="stylesheet" type="text/css" /> -->
 <script src="js/jquery.form-validator.min.js"></script>
 <script>
   $.validate({ lang: 'en' });
@@ -405,8 +483,7 @@ closeBtns.forEach(function(btn){ btn.onclick = function() { btn.closest('.modal'
 window.onclick = function(event) { if (event.target.className === "modal") { event.target.style.display = "none"; } }
 </script>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-49877708-1"></script>
+
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }

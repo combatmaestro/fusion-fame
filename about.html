@@ -41,7 +41,12 @@
 <meta property="og:image:height" content="247">
 <meta property="og:title" content="Non-Surgical Hair Replacement in Calicut | Hair Fixing kochi | Surgical hair replacement in kochi">
 <meta property="og:description" content="Regain your confidence with our non surgical hair replacement solutions. Our hair fixing services are available in Dubai, India, Qatar, Kochi, Bangalore,  Kollam, Calicut India. Be smart with smart hair replacement. Surgical hair replacement in kerala, hair replacement in Kochi, hair replacement in calicut. ">
-
+<script src="js/jquery.min.js"></script>
+<script src="js/menu/menu.js"></script>
+<script src="js/menu/menu.js"></script>
+<script src="js/css3-animate-it.js"></script>
+<script src="js/jqueryAll.js"></script>
+<script src="layout/script.js"></script>
 <script>
 function showIt() {
   document.getElementById("mobMEnu").style.visibility = "visible";
@@ -309,15 +314,20 @@ refreshButton.onclick = function() {
         });
     </script>
          <script>
-            Promise.all([
+          Promise.all([
               fetch("commonNav.html").then((res) => res.text()),
               fetch("footer.html").then((res) => res.text()),
-              
-            ]).then(([navHTML,footerCommon]) => {
+          ]).then(([navHTML, footerCommon]) => {
               document.getElementById("commonNav").outerHTML = navHTML;
               document.getElementById("footerCommon").outerHTML = footerCommon;
-            });
-          </script>
+              $('#menu').mmenu(); // Initialize Mmenu after nav is loaded
+              $('.mh-head.first').mhead({ scroll: false }); // Ensure these are needed
+              $('.mh-head.second').mhead({ scroll: { hide: 200 } });
+              $(document).ready(function() {
+                  $("#menu").delay(2000).fadeIn(500); // Optional fade-in
+              });
+          });
+      </script>
     <style> .grecaptcha-badge { z-index:60000000 !important }  
 #alert span { display:block; color:#fff; margin:10px 0; text-align:center; border-radius:2px; padding:10px  }
 #alert span.success { background-color:#07B700 }
@@ -345,19 +355,7 @@ refreshButton.onclick = function() {
 <li><a href="https://www.hairsculture.com/ae/about.html"  title="Best non surgical hair replacement in calicut">Hairs Culture hair fixing in Dubai</a></li>
 </ul>
 </div>
-<script src="layout/vue.js"></script>
-<script src="layout/addressslider.js?v=2"></script>
-<script src="layout/layout.js"></script>
-<script src="js/jquery.min.js" ></script>
-<script src="js/webfontloader.js" ></script>
-<script src="js/menu/menu.js"></script>
-<script>
-    Promise.all([
-      fetch("commonNav.html").then((res) => res.text()),
-    ]).then(([navHTML]) => {
-      document.getElementById("commonNav").outerHTML = navHTML;
-    });
-  </script>
+
 <script >
  $(function() {
  //	create a menu
@@ -521,6 +519,7 @@ window.addEventListener('load', function () {
 	var x = setInterval(go, 100);
 }, true);
 </script>
+<script src="js/jquery.form-validator.min.js"></script>
 <script>
 function sendContactQuick() {
 	var valid;	
