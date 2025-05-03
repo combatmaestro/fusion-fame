@@ -5257,7 +5257,7 @@ img {
 
 .btmQuickLInks {
   padding: 25px 0 45px;
-  background-image: url(../images/welcome-bg.png);
+  background-color: rgb(195, 158, 225);
 }
 
 .btmQuickLInks li {
