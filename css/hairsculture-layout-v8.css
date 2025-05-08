@@ -4745,7 +4745,7 @@ a {
 }
 
 img {
-  max-width: 100%;
+  max-width: 125%;
   height: auto;
   vertical-align: top;
 }
@@ -4822,6 +4822,7 @@ img {
 
 .siteLogo {
   float: left;
+  position: sticky;
   transition: all 0.5s ease;
   width: 133px;
 }
@@ -4940,7 +4941,7 @@ img {
 .widget-stud-hrs {
   padding: 25px 0 25px 0;
   background-color: #90caf8;
-  background-image: url(../images/studio-hrs.png);
+  /* background-image: url(../images/studio-hrs.png); */
   background-color: #431e61;
   background-repeat: no-repeat;
   background-position: 55px center;
@@ -4957,7 +4958,7 @@ img {
   font-size: 18pt;
   padding-right: 20px;
   padding-top: 5px;
-  color: #000000;
+  color: #f5efef;
 }
 
 .timeBlk,
@@ -4966,7 +4967,7 @@ img {
 }
 
 .timeBlk {
-  color: #050505;
+  color: #fbf7f7;
 }
 
 .timing {
@@ -6382,7 +6383,7 @@ img {
 
   border: 1px solid #888;
 
-  width: 400px;
+  width: 290px;
 }
 
 /* The Close Button */
@@ -7726,7 +7727,7 @@ img {
   }
 
   .widget-stud-hrs {
-    background-image: url(../images/studio-hrs.png);
+    /* background-image: url(../images/studio-hrs.png); */
     background-size: 130px;
   }
 
@@ -7871,7 +7872,7 @@ img {
   }
 
   .widget-stud-hrs {
-    background-image: url(../images/studio-hrs.png);
+    /* background-image: url(../images/studio-hrs.png); */
     background-size: 44px;
     background-position: 35px center;
   }
@@ -8203,7 +8204,7 @@ img {
   }
 
   .widget-stud-hrs {
-	background-image: url(../images/studio-hrs.png);
+	/* background-image: url(../images/studio-hrs.png); */
     background-size: 44px;
   }
 
@@ -8267,9 +8268,9 @@ img {
     padding-top: 0px;
   }
 
-  .fixed .siteLogo {
+  /* .fixed .siteLogo {
     display: none;
-  }
+  } */
 
   #page {
     font-size: 10pt;
@@ -8449,7 +8450,7 @@ img {
   }
 
   .widget-stud-hrs {
-	background-image: url(../images/studio-hrs.png);
+	/* background-image: url(../images/studio-hrs.png); */
     background-size: 224px;
     margin-top: 0px;
   }
@@ -8649,7 +8650,7 @@ img {
   }
 
   .widget-stud-hrs {
-	background-image: url(../images/studio-hrs.png);
+	/* background-image: url(../images/studio-hrs.png); */
     background-size: 204px;
     margin-top: 0;
   }

@@ -1,0 +1,213 @@
+<div id="myModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Request a call back</h4>
+          <div class="close">&times;</div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="modal-body" id="rootmodal">
+          <div class="enqury-MOdel">
+            <form
+              method="post"
+              autocomplete="off"
+              action="contact_mail_quick.php"
+            >
+              <div class="enqu-form">
+                <div id="frmContact">
+                  <div id="mail-statusQuick"></div>
+                  <div class="form-group">
+                    <span id="userName-infoQuick" class="info"></span>
+
+                    <input
+                      class="form-control demoInputBoxQuick"
+                      type="text"
+                      name="userName"
+                      id="userNameQuick"
+                      placeholder="Enter Your Name"
+                      required
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <span id="userEmail-infoQuick" class="info"></span>
+                    <input
+                      class="form-control demoInputBoxQuick"
+                      type="text"
+                      name="userEmail"
+                      id="userEmailQuick"
+                      placeholder="Enter Your Email"
+                      required
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <span id="phone-infoQuick" class="info"></span>
+
+                    <input
+                      class="form-control demoInputBoxQuick"
+                      type="text"
+                      name="mobile"
+                      id="phoneQuick"
+                      placeholder="Enter Your Mobile Number"
+                      required
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <span id="comments-infoQuick" class="info"></span>
+                    <textarea
+                      name="commentsQuick"
+                      id="commentsQuick"
+                      class="form-control txtar"
+                      placeholder="Comments (if any)"
+                      cols=""
+                      rows=""
+                    ></textarea>
+                  </div>
+                  <div class="enquiry-block">
+                    <div class="elem-group">
+                      <span class="captExt"
+                        >Please Enter the Captcha Text
+                      </span>
+                      <div class="clear"></div>
+
+                      <img
+                        src="captcha.php"
+                        alt="CAPTCHA"
+                        class="captcha-image"
+                      /><img
+                        class="refresh-captcha"
+                        src="images/refresh.png"
+                        alt="best hair replacement in kerala"
+                        style="width: 20px; height: 20px"
+                      />
+                      <input
+                        type="text"
+                        id="captcha"
+                        name="captcha_challenge"
+                      />
+                    </div>
+                  </div>
+                  <div class="enquiry-block">
+                    <div class="enquiry-btn">
+                      <button
+                        name="submit"
+                        class="btnAction submit-btn"
+                        onClick="sendContactQuick();"
+                      >
+                        SUBMIT
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="clear"></div>
+              </div>
+              <style>
+                .captExt {
+                  color: #353535;
+                  display: block;
+                  padding: 8px 0 5px;
+                  width: 100%;
+                  font-size: 10.5pt;
+                  font-family: "Montserrat", sans-serif;
+                }
+                .elem-group {
+                  padding-bottom: 10px;
+                }
+              </style>
+            </form>
+            <script
+              async
+              src="https://www.google.com/recaptcha/api.js?render=6Le8imcbAAAAABhZTVIXqKYojcxzWDUxZrQ6KyXg"
+            ></script>
+            <script>
+              Promise.all([
+                fetch("commonNav.html").then((res) => res.text()),
+                fetch("footer.html").then((res) => res.text()),
+              ]).then(([navHTML, footerCommon]) => {
+                document.getElementById("commonNav").outerHTML = navHTML;
+                document.getElementById("footerCommon").outerHTML =
+                  footerCommon;
+              });
+            </script>
+            <script>
+              var refreshButton = document.querySelector(".refresh-captcha");
+              refreshButton.onclick = function () {
+                document.querySelector(".captcha-image").src =
+                  "captcha.php?" + Date.now();
+              };
+            </script>
+
+            <script>
+              $("#contact-form").submit(function (event) {
+                event.preventDefault(); // Prevent direct form submission
+                $("#alert").text("Processing...").fadeIn(0);
+                // Display "Processing" to let the user know that the form is being submitted
+                grecaptcha.ready(function () {
+                  grecaptcha
+                    .execute("6Le8imcbAAAAABhZTVIXqKYojcxzWDUxZrQ6KyXg", {
+                      action: "contact",
+                    })
+                    .then(function (token) {
+                      var recaptchaResponse =
+                        document.getElementById("recaptchaResponse");
+                      recaptchaResponse.value = token;
+                      // Make the Ajax call here
+                      $.ajax({
+                        url: "contact_mail.php",
+                        type: "post",
+                        data: $("#contact-form").serialize(),
+                        dataType: "json",
+                        success: function (_response) {
+                          // The Ajax request is a success. _response is a JSON object
+                          var error = _response.error;
+                          var success = _response.success;
+                          if (error != "") {
+                            // In case of error, display it to user
+                            $("#alert").html(error);
+                          } else {
+                            // In case of success, display it to user and remove the submit button
+                            $("#alert").html(success);
+                            $("#submit-button").remove();
+                          }
+                        },
+                        error: function (jqXhr, json, errorThrown) {
+                          // In case of Ajax error too, display the result
+                          var error = jqXhr.responseText;
+                          $("#alert").html(error);
+                        },
+                      });
+                    });
+                });
+              });
+            </script>
+
+            <style>
+              .grecaptcha-badge {
+                z-index: 60000000 !important;
+              }
+              #alert span {
+                display: block;
+                color: #fff;
+                margin: 10px 0;
+                text-align: center;
+                border-radius: 2px;
+                padding: 10px;
+              }
+              #alert span.success {
+                background-color: #07b700;
+              }
+              #alert span.error {
+                background-color: #9e0204;
+              }
+            </style>
+
+            <div class="clear"></div>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
