@@ -1,0 +1,170 @@
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Request a call back</h4>
+      <div class="close">&times;</div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="clear"></div>
+    <div class="modal-body" id="rootmodal">
+      <div class="enqury-MOdel">
+        <form method="post" autocomplete="off">
+          <div class="enqu-form">
+            <div id="frmContact">
+              <div id="mail-statusQuick"></div>
+              <div class="form-group">
+                <span id="userName-infoQuick" class="info"></span>
+                <input
+                  class="form-control demoInputBoxQuick"
+                  type="text"
+                  name="userName"
+                  id="userNameQuick"
+                  placeholder="Enter Your Name"
+                  required
+                  autocomplete="off"
+                />
+              </div>
+              <div class="form-group">
+                <span id="userEmail-infoQuick" class="info"></span>
+                <input
+                  class="form-control demoInputBoxQuick"
+                  type="text"
+                  name="userEmail"
+                  id="userEmailQuick"
+                  placeholder="Enter Your Email"
+                  required
+                  autocomplete="off"
+                />
+              </div>
+              <div class="form-group">
+                <span id="phone-infoQuick" class="info"></span>
+                <input
+                  class="form-control demoInputBoxQuick"
+                  type="text"
+                  name="mobile"
+                  id="phoneQuick"
+                  placeholder="Enter Your Mobile Number"
+                  required
+                  autocomplete="off"
+                />
+              </div>
+              <div class="form-group">
+                <span id="comments-infoQuick" class="info"></span>
+                <textarea
+                  name="commentsQuick"
+                  id="commentsQuick"
+                  class="form-control txtar"
+                  placeholder="Comments (if any)"
+                  cols=""
+                  rows=""
+                ></textarea>
+              </div>
+
+              <div class="enquiry-block">
+                <div class="enquiry-btn">
+                  <button
+                    name="submit"
+                    class="btnAction submit-btn"
+                    id="submit"
+                  >
+                    SUBMIT
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <style>
+            .captExt {
+              color: #353535;
+              display: block;
+              padding: 8px 0 5px;
+              width: 100%;
+              font-size: 10.5pt;
+              font-family: "Montserrat", sans-serif;
+            }
+            .elem-group {
+              padding-bottom: 10px;
+            }
+          </style>
+        </form>
+      
+        <script>
+          Promise.all([
+            fetch("commonNav.html").then((res) => res.text()),
+            fetch("footer.html").then((res) => res.text()),
+          ]).then(([navHTML, footerCommon]) => {
+            // document.getElementById("commonNav").outerHTML = navHTML;
+            // document.getElementById("footerCommon").outerHTML = footerCommon;
+            $("#menu").mmenu(); // Initialize Mmenu after nav is loaded
+            $(".mh-head.first").mhead({ scroll: false }); // Ensure these are needed
+            $(".mh-head.second").mhead({ scroll: { hide: 200 } });
+            $(document).ready(function () {
+              $("#menu").delay(2000).fadeIn(500); // Optional fade-in
+            });
+          });
+        </script>
+        <style>
+          .grecaptcha-badge {
+            z-index: 60000000 !important;
+          }
+          #alert span {
+            display: block;
+            color: #fff;
+            margin: 10px 0;
+            text-align: center;
+            border-radius: 2px;
+            padding: 10px;
+          }
+          #alert span.success {
+            background-color: #07b700;
+          }
+          #alert span.error {
+            background-color: #9e0204;
+          }
+        </style>
+        <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+</div>
+<script>
+  var modal = document.getElementById("myModal");
+  var btn = document.getElementById("myBtn");
+  var span = document.getElementsByClassName("close")[0];
+  btn.onclick = function () {
+    modal.style.display = "block";
+  };
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>
+<script>
+  var modalBtns = [...document.querySelectorAll(".button")];
+  modalBtns.forEach(function (btn) {
+    btn.onclick = function () {
+      document.getElementById(btn.getAttribute("data-modal")).style.display =
+        "block";
+    };
+  });
+  var closeBtns = [...document.querySelectorAll(".close")];
+  closeBtns.forEach(function (btn) {
+    btn.onclick = function () {
+      btn.closest(".modal").style.display = "none";
+    };
+  });
+  window.onclick = function (event) {
+    if (event.target.className === "modal") {
+      event.target.style.display = "none";
+    }
+  };
+</script>

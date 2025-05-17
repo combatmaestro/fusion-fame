@@ -21,7 +21,7 @@
       name="keywords"
       content="non surgical hair replacement in kochi, non surgical hair replacement in calicut, non surgical hair replacement in kollam, non surgical hair replacement in kerala,non surgical hair replacement in Thrissur, Best non surgical hair replacement in kochi, Best non surgical hair replacement in calicut, Best non surgical hair replacement in kollam, Best non surgical hair replacement in kerala, Best non surgical hair replacement in Thrissur, Best hair wig fixing in kochi, Best hair wig fixing in calicut, Best hair wig fixing in kollam, Best hair wig fixing in kerala, Best hair wig fixing in Thrissur, Surgical hair replacement in kochi, Surgical hair replacement in calicut, Surgical hair replacement kollam, Surgical hair replacement in kerala,Surgical hair replacement in Thrissur, Hair fixing cost in kerala, Hair replacement cost in kerala, Hair transplant cost in kerala"
     />
-
+    
     <link rel="canonical" href="https://www.hairsculture.com/faq.html" />
     <meta
       name="google-site-verification"
@@ -106,6 +106,23 @@
         border-radius: 5px;
         color: #373737;
       }
+      .video-responsive {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.video-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;    /* Ensure it takes up 100% of the container */
+  height: 100%;   /* Maintain the aspect ratio height */
+  max-width: 100%; /* Ensure it doesn't exceed the container width */
+}
+
     </style>
     <script>
       function showIt() {
@@ -338,74 +355,45 @@
           <div style="position: relative">
             <div class="widget-stud-hrs">
               <div class="timing india">
-                <div class="cnName">INDIA</div>
+                <div class="cnName">Hyderabad</div>
                 <div class="timeBlk">
-                  10:00AM - 7:00PM<br />
-                  Mondays are closed
+                  10:00AM - 8:00PM<br />
+                  All days
                 </div>
                 <div class="clear"></div>
               </div>
-              <div class="timing dubai">
-                <div class="cnName">DUBAI</div>
-                <div class="timeBlk">
-                  10:00 AM - 8:00PM<br />
-                  All 7 days of week
-                </div>
-                <div class="clear"></div>
-              </div>
+           
               <div class="clear"></div>
             </div>
             <!-- ebd timing -->
             <div class="sub-btm-branches">
               <div class="container">
-                <h3 class="widget-title-btm">OUR <strong>BRANCHES</strong></h3>
+               
                 <div class="clear"></div>
+            
+                <!-- YouTube video embed -->
+                <div class="video-responsive" >
+                  <iframe  
+                          src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+                          title="YouTube video player" 
+                          frameborder="0" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                          allowfullscreen>
+                  </iframe>
+                </div>
+            
                 <div id="address-app"><address-app></address-app></div>
-
                 <div class="clear"></div>
               </div>
             </div>
+            
             <div class="clear"></div>
           </div>
         </div>
       </section>
       <!-- end sub btm wrapp -->
 
-      <div class="btmQuickLInks">
-        <div class="container">
-          <ul>
-            <li>
-              <a href="hair-replacement.html"
-                ><img
-                  src="images/repl-qlink.png"
-                  alt="Best non surgical hair replacement in kollam"
-                  width="364"
-                  height="202"
-              /></a>
-            </li>
-            <li>
-              <a href="hair-fixing.html"
-                ><img
-                  src="images/fixing-qlink.png"
-                  alt="Best hair wig fixing in kochi"
-                  width="364"
-                  height="202"
-              /></a>
-            </li>
-            <li>
-              <a href="hair-replacement.html#howDoes"
-                ><img
-                  src="images/trans-qlink.png"
-                  alt="Best hair wig fixing in kollam"
-                  width="364"
-                  height="202"
-              /></a>
-            </li>
-          </ul>
-
-          <div class="clear"></div>
-        </div>
-      </div>
+    
       <footer id="footerCommon"></footer>
       <div class="clear"></div>
     </div>
@@ -564,51 +552,23 @@
     </script>
     <div></div>
 
-    <script>
-      // Get the modal
-      var modal = document.getElementById("myModal");
-      // Get the button that opens the modal
-      var btn = document.getElementById("myBtn");
-      // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName("close")[0];
-      // When the user clicks the button, open the modal
-      btn.onclick = function () {
-        modal.style.display = "block";
-      };
-      // When the user clicks on <span> (x), close the modal
-      span.onclick = function () {
-        modal.style.display = "none";
-      };
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function (event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      };
-    </script>
-    <script>
-      var modalBtns = [...document.querySelectorAll(".button")];
-      modalBtns.forEach(function (btn) {
-        btn.onclick = function () {
-          var modal = btn.getAttribute("data-modal");
-          document.getElementById(modal).style.display = "block";
-        };
-      });
-
-      var closeBtns = [...document.querySelectorAll(".close")];
-      closeBtns.forEach(function (btn) {
-        btn.onclick = function () {
-          var modal = btn.closest(".modal");
-          modal.style.display = "none";
-        };
-      });
-
-      window.onclick = function (event) {
-        if (event.target.className === "modal") {
-          event.target.style.display = "none";
-        }
-      };
-    </script>
+   
+      <script>
+        Promise.all([
+          fetch("commonNav.html").then((res) => res.text()),
+          fetch("footer.html").then((res) => res.text()),
+        ]).then(([navHTML, footerCommon]) => {
+          document.getElementById("commonNav").outerHTML = navHTML;
+          document.getElementById("footerCommon").outerHTML =
+            footerCommon;
+          $("#menu").mmenu(); // Initialize Mmenu after nav is loaded
+          $(".mh-head.first").mhead({ scroll: false }); // Ensure these are needed
+          $(".mh-head.second").mhead({ scroll: { hide: 200 } });
+          $(document).ready(function () {
+            $("#menu").delay(2000).fadeIn(500); // Optional fade-in
+          });
+        });
+      </script>
     <script>
       window.addEventListener(
         "load",
@@ -660,137 +620,7 @@
         true
       );
     </script>
-    <script>
-      function sendContactQuick() {
-        var valid;
-        valid = validateContactQuick();
-        if (valid) {
-          jQuery.ajax({
-            url: "contact_mail.php",
-            data:
-              "userNameQuick=" +
-              $("#userNameQuick").val() +
-              "&userEmailQuick=" +
-              $("#userEmailQuick").val() +
-              "&phoneQuick=" +
-              $("#phoneQuick").val() +
-              "&commentsQuick=" +
-              $("#commentsQuick").val() +
-              "&captchaQuick=" +
-              $("#captchaQuick").val(),
-            type: "POST",
-            success: function (data) {
-              $("#mail-statusQuick").html(data);
-            },
-            error: function () {},
-          });
-        }
-      }
-      function validateContactQuick() {
-        var valid = true;
-        $(".demoInputBoxQuick").css("background-color", "");
-        $(".info").html("");
-        if (!$("#userNameQuick").val()) {
-          $("#userName-infoQuick").html("(required)");
-          $("#userNameQuick").css("background-color", "#FFFFDF");
-          valid = false;
-        }
-        if (!$("#userEmailQuick").val()) {
-          $("#userEmail-infoQuick").html("(required)");
-          $("#userEmailQuick").css("background-color", "#FFFFDF");
-          valid = false;
-        }
-        if (
-          !$("#userEmailQuick")
-            .val()
-            .match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)
-        ) {
-          $("#userEmail-infoQuick").html("(invalid)");
-          $("#userEmailQuick").css("background-color", "#FFFFDF");
-          valid = false;
-        }
-        if (!$("#phoneQuick").val()) {
-          $("#phone-infoQuick").html("(required)");
-          $("#phoneQuick").css("background-color", "#FFFFDF");
-          valid = false;
-        }
-        if (!$("#captchaQuick").val()) {
-          $("#captcha-infoQuick").html("(required)");
-          $("#captchaQuick").css("background-color", "#FFFFDF");
-          valid = false;
-        }
-        return valid;
-      }
-      function refreshCaptchaQuick() {
-        $("#captcha_codeQuick").attr("src", "captcha_code.php");
-      }
-    </script>
-    <script>
-      function sendContactEnq() {
-        var valid;
-        valid = validateContactEnq();
-        if (valid) {
-          jQuery.ajax({
-            url: "enquiry-action.php",
-            data:
-              "nme=" +
-              $("#nme").val() +
-              "&mobile=" +
-              $("#mobile").val() +
-              "&email=" +
-              $("#email").val() +
-              "&country=" +
-              $("#country").val() +
-              "&city=" +
-              $("#city").val() +
-              "&comments=" +
-              $("#comments").val() +
-              "&captcha=" +
-              $("#captcha").val(),
-            type: "POST",
-            success: function (data) {
-              $("#mail-statusEnq").html(data);
-            },
-            error: function () {},
-          });
-        }
-      }
-      function validateContactEnq() {
-        var valid = true;
-        $(".demoInputBox").css("background-color", "");
-        $(".info").html("");
-
-        if (!$("#nme").val()) {
-          $("#userName-info").html("(required)");
-          $("#nme").css("background-color", "#FFFFDF");
-          valid = false;
-        }
-        if (!$("#mobile").val()) {
-          $("#userMobile-info").html("(required)");
-          $("#mobile").css("background-color", "#FFFFDF");
-          valid = false;
-        }
-        if (!$("#email").val()) {
-          $("#userEmail-info").html("(required)");
-          $("#email").css("background-color", "#FFFFDF");
-          valid = false;
-        }
-        if (
-          !$("#email")
-            .val()
-            .match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)
-        ) {
-          $("#userEmail-info").html("(invalid)");
-          $("#email").css("background-color", "#FFFFDF");
-          valid = false;
-        }
-      
-        return valid;
-      }
-      function refreshCaptcha() {
-        $("#captcha_code").attr("src", "captcha_code.php");
-      }
-    </script>
+   
   
     <script>
       window.dataLayer = window.dataLayer || [];

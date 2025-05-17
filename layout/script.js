@@ -88,12 +88,3 @@ span?.addEventListener("click", function () {
 window.addEventListener("click", function (event) {
     if (event.target === modal) modal.style.display = "none";
 });
-
-// Refresh CAPTCHA
-var refreshButton = document.querySelector(".refresh-captcha");
-refreshButton?.addEventListener("click", function () {
-    const captchaImage = document.querySelector(".captcha-image");
-    if (captchaImage) {
-        captchaImage.src = 'captcha.php?' + Date.now();
-    }
-});

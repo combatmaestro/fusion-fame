@@ -5112,9 +5112,10 @@ img {
 .footer-contact {
   float: left;
   width: 50%;
-  background-image: url(../images/footer-logo.jpg);
+  background-image: url(../images/Fusion-Fame-Hair-Studio.png);
   background-repeat: no-repeat;
   background-position: right center;
+  background-size: 200px auto; /* Adjust this value as needed */
   color: #6d6d6d;
 }
 
@@ -5525,7 +5526,7 @@ img {
   padding: 5px 15px;
   font-size: 13pt;
   background-image: url(../images/btm-branches-bg2.png);
-  color: #fff;
+  color: #060606;
   margin-bottom: 10px;
   margin-top: 10px;
 }
@@ -6026,6 +6027,11 @@ img {
 .hairTransSecBtm h4 {
   text-transform: uppercase;
   text-align: left;
+}
+
+.ans{
+  margin-left:5%;
+  background-color: azure;
 }
 
 .ques-ans {

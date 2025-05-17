@@ -11,7 +11,7 @@
             <form
               method="post"
               autocomplete="off"
-              action="contact_mail_quick.php"
+             
             >
               <div class="enqu-form">
                 <div id="frmContact">
@@ -65,36 +65,13 @@
                       rows=""
                     ></textarea>
                   </div>
-                  <div class="enquiry-block">
-                    <div class="elem-group">
-                      <span class="captExt"
-                        >Please Enter the Captcha Text
-                      </span>
-                      <div class="clear"></div>
-
-                      <img
-                        src="captcha.php"
-                        alt="CAPTCHA"
-                        class="captcha-image"
-                      /><img
-                        class="refresh-captcha"
-                        src="images/refresh.png"
-                        alt="best hair replacement in kerala"
-                        style="width: 20px; height: 20px"
-                      />
-                      <input
-                        type="text"
-                        id="captcha"
-                        name="captcha_challenge"
-                      />
-                    </div>
-                  </div>
+                
                   <div class="enquiry-block">
                     <div class="enquiry-btn">
                       <button
                         name="submit"
                         class="btnAction submit-btn"
-                        onClick="sendContactQuick();"
+                        id="submit"
                       >
                         SUBMIT
                       </button>
@@ -131,58 +108,7 @@
                   footerCommon;
               });
             </script>
-            <script>
-              var refreshButton = document.querySelector(".refresh-captcha");
-              refreshButton.onclick = function () {
-                document.querySelector(".captcha-image").src =
-                  "captcha.php?" + Date.now();
-              };
-            </script>
-
-            <script>
-              $("#contact-form").submit(function (event) {
-                event.preventDefault(); // Prevent direct form submission
-                $("#alert").text("Processing...").fadeIn(0);
-                // Display "Processing" to let the user know that the form is being submitted
-                grecaptcha.ready(function () {
-                  grecaptcha
-                    .execute("6Le8imcbAAAAABhZTVIXqKYojcxzWDUxZrQ6KyXg", {
-                      action: "contact",
-                    })
-                    .then(function (token) {
-                      var recaptchaResponse =
-                        document.getElementById("recaptchaResponse");
-                      recaptchaResponse.value = token;
-                      // Make the Ajax call here
-                      $.ajax({
-                        url: "contact_mail.php",
-                        type: "post",
-                        data: $("#contact-form").serialize(),
-                        dataType: "json",
-                        success: function (_response) {
-                          // The Ajax request is a success. _response is a JSON object
-                          var error = _response.error;
-                          var success = _response.success;
-                          if (error != "") {
-                            // In case of error, display it to user
-                            $("#alert").html(error);
-                          } else {
-                            // In case of success, display it to user and remove the submit button
-                            $("#alert").html(success);
-                            $("#submit-button").remove();
-                          }
-                        },
-                        error: function (jqXhr, json, errorThrown) {
-                          // In case of Ajax error too, display the result
-                          var error = jqXhr.responseText;
-                          $("#alert").html(error);
-                        },
-                      });
-                    });
-                });
-              });
-            </script>
-
+          
             <style>
               .grecaptcha-badge {
                 z-index: 60000000 !important;
