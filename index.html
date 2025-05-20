@@ -2,22 +2,7 @@
 <html lang="en">
 
 <head>
-    <!-- Google Tag Manager -->
-    <script>
-        (function(w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-W86TG4B');
-    </script>
+   
     <!-- End Google Tag Manager -->
 
     <meta charset="utf-8">
@@ -50,24 +35,22 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="images/hairs_icon.ico">
     <link rel="stylesheet" href="css/hairsculture-layout-v8.css?ver=1">
-    <link rel="stylesheet" href="layout/style.css">
-    <!-- <link rel="stylesheet" href="./css/animations.css"> -->
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
-    <!-- <link rel="manifest" href="images/favicons/site.webmanifest"> -->
     <link rel="mask-icon" href="images/favicons/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="shortcut icon" href="images/favicons/favicon.ico">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-config" content="images/favicons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="layout/style.css"> <!-- Added link to external CSS -->
+    <script src="mainScript.js" defer></script>
    <style>
     .logo-img {
-  width: 300px;
-  height: 70px;
-  object-fit: contain; /* optional, ensures the image fits nicely */
-}
+        width: 300px;
+        height: 70px;
+        object-fit: contain; /* optional, ensures the image fits nicely */
+    }
    </style>
     <!-- Meta Pixel Code -->
     <script>
@@ -77,46 +60,11 @@
         setTimeout(showIt, 1000); // after 1 sec
         </script>
         <style>
-#menu { display:none }
-</style>
-
-    <script>
-        !function(f, b, e, v, n, t, s) {
-            if (f.fbq) return;
-            n = f.fbq = function() {
-                n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n;
-            n.push = n;
-            n.loaded = !0;
-            n.version = '2.0';
-            n.queue = [];
-            t = b.createElement(e);
-            t.async = !0;
-            t.src = v;
-            s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1055098201789793');
-        fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none" alt="hairs culture facebook" src="https://www.facebook.com/tr?id=1055098201789793&ev=PageView&noscript=1" /></noscript>
-    <!-- End Meta Pixel Code -->
-
-    <script type="text/javascript">
-        const time_wait = 3;
-        const blackout = 0;
-        const yaban = 0;
-        const title = "";
-        const desc = "";
-    </script>
+        #menu { display:none }
+    </style>
 </head>
 
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W86TG4B" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
     <div id="page">
        
         <div id="commonNav">
@@ -317,7 +265,7 @@
                 <div class="clear"></div>
                 <div class="modal-body" id="rootmodal">
                     <div class="enqury-MOdel">
-                        <form method="post" autocomplete="off">
+                        <form>
                             <div class="enqu-form">
                                 <div id="frmContact">
                                     <div id="mail-statusQuick"></div>
@@ -340,7 +288,7 @@
                                    
                                     <div class="enquiry-block">
                                         <div class="enquiry-btn">
-                                            <button name="submit" class="btnAction submit-btn" onclick="sendContactQuick();">SUBMIT</button>
+                                            <button name="submit" class="btnAction submit-btn" id="submitBtn">SUBMIT</button>
                                         </div>
                                     </div>
                                 </div>
@@ -395,12 +343,6 @@
 });
 });		
       </script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'UA-49877708-1');
-    </script>
     <!-- <script src="js/webfontloader.js"></script> -->
     <script src="js/css3-animate-it.js"></script>
     <script src="js/jqueryAll.js"></script>

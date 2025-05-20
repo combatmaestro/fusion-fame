@@ -1,56 +1,42 @@
-// script.js
- async function sendContactQuick({ formId, actionUrl, statusId }) {
-    console.log(actionUrl)
-    // const isValid = validateContact(formId);
-    // if (!isValid) return;
-  
-    // const form = document.getElementById(formId);
-    // const formData = new FormData(form);
-  
-    // try {
-    //   const response = await fetch(actionUrl, {
-    //     method: 'POST',
-    //     body: formData
-    //   });
-  
-    //   const result = await response.text(); // or `await response.json()` if your backend returns JSON
-    //   document.getElementById(statusId).innerHTML = result;
-    // } catch (error) {
-    //   document.getElementById(statusId).innerHTML = "An error occurred. Please try again.";
-    // }
-  }
-  
-//   export function validateContact(formId) {
-//     const form = document.getElementById(formId);
-//     let valid = true;
-  
-//     const requiredFields = form.querySelectorAll('[data-required]');
-//     requiredFields.forEach(input => {
-//       const infoEl = document.getElementById(`${input.name}-info`);
-//       infoEl.textContent = '';
-//       input.style.backgroundColor = '';
-  
-//       if (!input.value.trim()) {
-//         infoEl.textContent = '(required)';
-//         input.style.backgroundColor = '#FFFFDF';
-//         valid = false;
-//       }
-  
-//       if (input.type === 'email' && input.value) {
-//         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//         if (!emailPattern.test(input.value)) {
-//           infoEl.textContent = '(invalid)';
-//           input.style.backgroundColor = '#FFFFDF';
-//           valid = false;
-//         }
-//       }
-//     });
-  
-//     return valid;
-//   }
-  
-//   export function refreshCaptcha(captchaId = 'captcha_code') {
-//     const captcha = document.getElementById(captchaId);
-//     captcha.src = `captcha_code.php?${Date.now()}`; // bust cache
-//   }
-  
+document.getElementById('submitBtn').addEventListener("click", async (e) => {
+        e.preventDefault();
+
+        const payload = {
+          userName: document.getElementById("userNameQuick").value.trim(),
+          userEmail: document.getElementById("userEmailQuick").value.trim(),
+          mobile: document.getElementById("phoneQuick").value.trim(),
+          comments: document.getElementById("commentsQuick").value.trim(),
+        };
+
+        try {
+          const response = await fetch("http://localhost:5000/api/enquiries", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            // Fancy success alert
+            await Swal.fire({
+              icon: 'success',
+              title: 'Thank you!',
+              text: 'Your request has been submitted successfully.',
+              confirmButtonColor: '#431e61'
+            });
+            window.location.reload();
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: data.message || 'Something went wrong!',
+            });
+          }
+        } catch (error) {
+          console.error("Submission error:", error);
+          alert("There was a problem submitting your request.");
+        }
+      });
+
+

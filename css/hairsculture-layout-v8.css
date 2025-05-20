@@ -4941,7 +4941,7 @@ img {
 .widget-stud-hrs {
   padding: 25px 0 25px 0;
   background-color: #90caf8;
-  /* background-image: url(../images/studio-hrs.png); */
+  background-image: url(../images/studio-hrs.png);
   background-color: #431e61;
   background-repeat: no-repeat;
   background-position: 55px center;
@@ -7733,7 +7733,7 @@ img {
   }
 
   .widget-stud-hrs {
-    /* background-image: url(../images/studio-hrs.png); */
+    background-image: url(../images/studio-hrs.png);
     background-size: 130px;
   }
 
@@ -7878,7 +7878,7 @@ img {
   }
 
   .widget-stud-hrs {
-    /* background-image: url(../images/studio-hrs.png); */
+    background-image: url(../images/studio-hrs.png);
     background-size: 44px;
     background-position: 35px center;
   }
@@ -8210,7 +8210,7 @@ img {
   }
 
   .widget-stud-hrs {
-	/* background-image: url(../images/studio-hrs.png); */
+	background-image: url(../images/studio-hrs.png);
     background-size: 44px;
   }
 
@@ -8456,7 +8456,7 @@ img {
   }
 
   .widget-stud-hrs {
-	/* background-image: url(../images/studio-hrs.png); */
+	background-image: url(../images/studio-hrs.png);
     background-size: 224px;
     margin-top: 0px;
   }
